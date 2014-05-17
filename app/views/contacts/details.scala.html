@@ -1,0 +1,25 @@
+@(contactForm: play.data.Form[Contact])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Nowy kontakt") {
+	<h2>Dodaj nowy kontakt</h2>
+	@helper.form(action = helper.CSRF(routes.Contacts.save())) {
+		<fieldset>
+			<legend>
+				@contactForm("name").valueOr("Nowy ")	
+				@contactForm("lastName").valueOr("kontakt:")
+			</legend>
+			<input type="text" value="@contactForm("id").valueOr("")" name="id"/>
+			<br/>
+			@helper.inputText(contactForm("name"), '_label -> "imię")
+			@helper.inputText(contactForm("lastName"), '_label -> "nazwisko")
+			@helper.inputText(contactForm("company"), '_label -> "firma")
+			@helper.inputText(contactForm("email"), '_label -> "email")
+			@helper.inputText(contactForm("phoneNumber"), '_label -> "telefon")
+		
+		</fieldset>
+		<input type="submit" class="btn btn-primary" value="Dodaj">
+		<a class="btn" href="@routes.Contacts.showAll()">Wróć do listy</a>
+		}
+	}

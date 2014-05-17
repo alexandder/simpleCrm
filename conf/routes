@@ -5,17 +5,19 @@
 # Home page
 GET     /                           controllers.Application.index()
 
-GET		/users/						controllers.Users.showAll()
-
 GET		/login/						controllers.Application.login()
+
+POST	/authenticate				controllers.Application.authenticate()
+
+GET		/users/						controllers.Users.showAll()
 
 GET		/contacts/					controllers.Contacts.showAll()
 
 GET		/contacts/new				controllers.Contacts.newContact()
 
-GET		/contact/:id				controllers.Contacts.details(id: Int)
+GET		/contact/:id				controllers.Contacts.details(id: Long)
 
-DELETE	/contacts/:id				controllers.Contacts.delete(id: Int)
+DELETE	/contacts/:id				controllers.Contacts.delete(id: Long)
 
 POST	/contacts/					controllers.Contacts.save()
 

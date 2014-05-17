@@ -1,0 +1,54 @@
+@(contacts: List[Contact])
+
+@main("Lisa kontaktów") {
+	<h3>Kontakty</h3>
+	
+		<script>
+			function del(urlToDelete) {
+				$.ajax({
+					url : urlToDelete,
+					type : 'DELETE',
+					success : function(results) {
+						location.reload();
+					}
+				});
+			}
+		</script>
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Imię</th>
+					<th>Nazwisko</th>
+					<th>Firma</th>
+					<th>Email</th>
+					<th>Telefon</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@for(contact <- contacts) {
+					<tr>
+						<td>@contact.id</td>
+						<td>@contact.name</td>
+						<td>@contact.lastName</td>
+						<td>@contact.company</td>
+						<td>@contact.email</td>
+						<td>@contact.phoneNumber</td>
+						<td><a href="@routes.Contacts.details(contact.id)" class="btn btn-primary">Edytuj</a></td>
+						<td><a onclick="del('@routes.Contacts.delete(contact.id)')" class="btn btn-primary">Usuń</a></td>
+					</tr>
+					
+				}
+				
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<a href="@routes.Contacts.newContact()" class="btn btn-primary">Dodaj kontakt</a>
+	</div>
+	}
+
+	

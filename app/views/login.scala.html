@@ -1,0 +1,13 @@
+@(loginForm: play.data.Form[Application.LoginData])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Zaloguj się!") {
+	@helper.form(helper.CSRF(routes.Application.authenticate)) {
+		<h2>Podaj email i hasło</h2>
+		<p><input type="email" name="email" value="@loginForm("email").value"></p>
+		<p><input type="password" name="password" value="@loginForm("password").value"></p>
+		<p><button type="submit">Zaloguj się!</button></p>
+		}
+	
+	}
