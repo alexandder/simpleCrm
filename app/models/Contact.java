@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.Constraint;
 
 import play.data.validation.Constraints;
@@ -22,6 +23,9 @@ public class Contact extends Model {
 	public String company;
 	public String email;
 	public String phoneNumber;
+	
+	@ManyToOne
+	public User user;
 	
 	public static Finder<Long, Contact> find = new Finder<>(Long.class, Contact.class);
 	

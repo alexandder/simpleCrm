@@ -10,7 +10,9 @@
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-    	@menu()
+    	@if(session().get("email")) {
+    		@menu()
+    	}
     	@if(flash.containsKey("success")) {
     		<div class="alert alert-success">
     			<h3>@flash.get("success")</h3>

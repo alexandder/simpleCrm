@@ -16,4 +16,8 @@ public class Users extends Controller{
 		List<User> users = User.findAll();
     	return ok(list.render(users));
     }
+	
+	public static Result details() {
+		return TODO;
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.avaje.ebean.Ebean;
 
 import models.Contact;
+import models.User;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -18,7 +19,7 @@ public class Contacts extends Controller {
 	private static final Form<Contact> contactForm = Form.form(Contact.class);
 	
     public static Result showAll() {
-    	List<Contact> contacts = Contact.findAll();
+    	List<Contact> contacts = User.findByEmail(session().get("email")).contacts;
     	return ok(list.render(contacts));
     }
     
@@ -41,17 +42,18 @@ public class Contacts extends Controller {
     public static Result save() {
     	Form<Contact> boundForm = contactForm.bindFromRequest();
     	if (boundForm.hasErrors()) {
-    		flash("error", "Nieprawidłowe dane. Proszę poprawić formularz");
+    		flash("error", "Nieprawidłowe dane. Proszę poprawić formularz.");
     		return badRequest(details.render(boundForm));
     	}
     	Contact contact = boundForm.get();
     	if (contact.id == null) {
+    		contact.user = User.findByEmail(session().get("email"));
     		Ebean.save(contact);
-        	flash("success", "Pomyślnie dodano nowy kontakt");
+        	flash("success", "Pomyślnie dodano nowy kontakt.");
     	}
     	else {
     		Ebean.update(contact);
-        	flash("success", "Pomyślnie edytowano kontakt");
+        	flash("success", "Pomyślnie edytowano kontakt.");
     	}
     	
     	return redirect(routes.Contacts.showAll());

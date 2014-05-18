@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 
 import play.data.validation.Constraints.Email;
 import play.data.validation.Constraints;
@@ -30,6 +31,9 @@ public class User extends Model{
 	@Lob
 	public byte[] image;
 	
+	@OneToMany(mappedBy="user")
+	public List<Contact> contacts;
+	
 	public static User authenticate(String email, String password) {
 		return finder.where().eq("email", email).eq("password", password).findUnique();
 	}
@@ -44,5 +48,9 @@ public class User extends Model{
 	
 	public static List<User> findAll() {
 		return finder.all();
+	}
+	
+	public static User findByEmail(String email) {
+		return finder.where().eq("email", email).findUnique();
 	}
 }
