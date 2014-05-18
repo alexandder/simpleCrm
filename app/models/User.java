@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -39,4 +41,8 @@ public class User extends Model{
 	
 	
 	public static Finder<Long, User> finder = new Finder<>(Long.class, User.class);
+	
+	public static List<User> findAll() {
+		return finder.all();
+	}
 }

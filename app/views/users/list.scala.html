@@ -1,0 +1,29 @@
+@* list Template File *@
+@(users: List[User])
+
+@main("Lista użytkowników") {
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>email</th>
+					<th>zdjęcie</th>
+					<th>admin</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for(user <- users) {
+					<tr>
+						<td>@user.id</td>
+						<td>@user.email</td>
+						<td>@user.image</td>
+						<td>@user.isAdmin</td>
+					</tr>	
+				}
+			</tbody>		
+		</table>
+	</div>
+	
+	
+	}

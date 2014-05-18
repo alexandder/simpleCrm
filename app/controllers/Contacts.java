@@ -10,7 +10,9 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.contacts.list;
 import views.html.contacts.details;
+import play.mvc.Security;
 
+@Security.Authenticated(Secured.class)
 public class Contacts extends Controller {
 
 	private static final Form<Contact> contactForm = Form.form(Contact.class);

@@ -1,0 +1,10 @@
+@()
+<div class="navbar-inner">
+	<ul class="nav">
+		<li><a href="@routes.Contacts.showAll()">Lista kontaktów</a></li>
+		@if( session().get("isAdmin") ) {
+			<li><a href="@routes.Users.showAll">Lista użytkowników</a></li>
+		}
+	</ul>
+
+</div>

@@ -30,9 +30,6 @@ public class Application extends Controller {
     	if (user.isAdmin) {
     		session("isAdmin", "true");
     	}
-    	else {
-    		session("isAdmin", "false");
-    	}
     	
     	return redirect(routes.Contacts.showAll());
     }
