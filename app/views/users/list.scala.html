@@ -18,7 +18,11 @@
 					<tr>
 						<td>@user.id</td>
 						<td>@user.email</td>
-						<td>@user.image</td>
+						<td>
+							@if(user.image != null) {
+								<img src="@routes.Assets.at(user.image)" >
+							}
+						</td>
 						<td>@user.isAdmin</td>
 						<td>@user.contacts.length</td>
 					</tr>	

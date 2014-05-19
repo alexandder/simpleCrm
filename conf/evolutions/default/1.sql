@@ -19,7 +19,7 @@ create table user (
   email                     varchar(255),
   password                  varchar(255),
   is_admin                  tinyint(1) default 0,
-  image                     longblob,
+  image                     varchar(255),
   constraint pk_user primary key (id))
 ;
 

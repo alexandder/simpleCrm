@@ -17,6 +17,12 @@ GET		/logout/					controllers.Application.logout()
 
 GET		/users/						controllers.Users.showAll()
 
+GET		/user/						controllers.Users.details()
+
+POST	/user/						controllers.Users.update()
+
+GET		/user/image/:path			controllers.Users.getImage(path: String)
+
 GET		/contacts/					controllers.Contacts.showAll()
 
 GET		/contacts/new				controllers.Contacts.newContact()

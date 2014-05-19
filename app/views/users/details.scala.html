@@ -1,0 +1,32 @@
+@* details Template File *@
+@(user: User)
+
+@main("Edytuj dane") {
+	<table>
+		<tr>
+			<td>Email: </td>
+			<td>@user.email</td>
+		</tr>
+		<tr>
+			<td>admin</td>
+			<td>@user.isAdmin</td>
+		</tr>
+		<tr>
+			<td>liczba kontaktów</td>
+			<td>@user.contacts.length</td>
+		</tr>
+	</table>
+	<br>
+	@helper.form(action = helper.CSRF(routes.Users.update()), 'enctype -> "multipart/form-data") {
+		@if(user.image != null) {
+				<div class="control-group">
+					<img src="@routes.Assets.at(user.image)" >
+				</div>	
+		}	
+		 <input type="file" name="image">
+		 <p>
+		 <input type="submit" value="Wyślij" class="btn btn-primary">
+		 </p>
+		 }
+	
+	}

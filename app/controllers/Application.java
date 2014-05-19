@@ -67,6 +67,7 @@ public class Application extends Controller {
     
     public static Result logout() {
     	session().clear();
+    	flash("success", "Wylogowanie przebiegło pomyślnie.");
     	return redirect(routes.Application.login());
     }
     

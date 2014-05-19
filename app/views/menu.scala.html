@@ -5,6 +5,7 @@
 		@if( session().get("isAdmin") ) {
 			<li><a href="@routes.Users.showAll" class="label label-primary">Lista użytkowników</a></li>
 		}
+		<li><a  href="@routes.Users.details()" class="label label-primary">Edytuj konto</a></li>
 		<li><a  href="@routes.Application.logout()" class="label label-primary">Wyloguj się</a></li>
 	</ul>
 	

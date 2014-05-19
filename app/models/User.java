@@ -28,8 +28,8 @@ public class User extends Model{
 	
 	public boolean isAdmin = false;
 
-	@Lob
-	public byte[] image;
+	
+	public String image;
 	
 	@OneToMany(mappedBy="user")
 	public List<Contact> contacts;

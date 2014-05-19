@@ -8,7 +8,6 @@ libraryDependencies ++= Seq(
   cache,
   "mysql" % "mysql-connector-java" % "5.1.18",
   "com.google.guava" % "guava" % "r05",
-  "ws.securesocial" %% "securesocial" % "2.1.3",
   filters
 )     
 

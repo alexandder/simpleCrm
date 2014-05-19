@@ -10,8 +10,6 @@
 				@contactForm("name").valueOr("Nowy ")	
 				@contactForm("lastName").valueOr("kontakt:")
 			</legend>
-			<input type="text" value="@contactForm("id").valueOr("")" name="id"/>
-			<br/>
 			@helper.inputText(contactForm("name"), '_label -> "imię")
 			@helper.inputText(contactForm("lastName"), '_label -> "nazwisko")
 			@helper.inputText(contactForm("company"), '_label -> "firma")
