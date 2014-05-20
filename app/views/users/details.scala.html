@@ -2,9 +2,9 @@
 @(user: User)
 
 @main("Edytuj dane") {
-	<table>
+	<table class="table">
 		<tr>
-			<td>Email: </td>
+			<td>email </td>
 			<td>@user.email</td>
 		</tr>
 		<tr>
@@ -16,14 +16,15 @@
 			<td>@user.contacts.length</td>
 		</tr>
 	</table>
-	<br>
 	@helper.form(action = helper.CSRF(routes.Users.update()), 'enctype -> "multipart/form-data") {
 		@if(user.image != null) {
 				<div class="control-group">
 					<img src="@routes.Assets.at(user.image)" >
 				</div>	
 		}	
-		 <input type="file" name="image">
+		<br>
+		 <input type="file" name="image" >
+		 <br>
 		 <p>
 		 <input type="submit" value="Wyślij" class="btn btn-primary">
 		 </p>

@@ -1,0 +1,26 @@
+#myMenu {
+	height: 70px;
+	width: 45%;
+	margin-top: 20px;
+	align: center;
+	margin-left: 200px;
+}
+
+#myFlash {
+	width: 50%;
+	margin-left: 200px;
+	margin-top: 50px;
+}
+	
+#myContent {
+	width: 50%;
+	margin-left: 200px;
+	margin-top: 40px;
+}
+
+#myProfile {
+	float: right;
+	width: 350px;
+	height: 300px;
+	
+}

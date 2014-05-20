@@ -1,7 +1,7 @@
 @(contacts: List[Contact])
 
 @main("Lisa kontaktów") {
-	<h3>Kontakty</h3>
+	<h3>Twoje kontakty</h3>
 	
 		<script>
 			function del(urlToDelete) {
@@ -18,7 +18,6 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Id</th>
 					<th>Imię</th>
 					<th>Nazwisko</th>
 					<th>Firma</th>
@@ -31,7 +30,6 @@
 			<tbody>
 				@for(contact <- contacts) {
 					<tr>
-						<td>@contact.id</td>
 						<td>@contact.name</td>
 						<td>@contact.lastName</td>
 						<td>@contact.company</td>

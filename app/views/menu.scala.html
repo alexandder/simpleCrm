@@ -1,11 +1,11 @@
 @()
 
-	<ul class="nav nav-pills">
-		<li><a href="@routes.Contacts.showAll()" class="label label-primary">Lista kontaktów</a></li>
+	<ul class="nav nav-tabs">
+		<li><a href="@routes.Contacts.showAll()" >Lista kontaktów</a></li>
 		@if( session().get("isAdmin") ) {
-			<li><a href="@routes.Users.showAll" class="label label-primary">Lista użytkowników</a></li>
+			<li><a href="@routes.Users.showAll" >Lista użytkowników</a></li>
 		}
-		<li><a  href="@routes.Users.details()" class="label label-primary">Edytuj konto</a></li>
-		<li><a  href="@routes.Application.logout()" class="label label-primary">Wyloguj się</a></li>
+		<li><a  href="@routes.Users.details()" >Edytuj konto</a></li>
+		<li><a  href="@routes.Application.logout()" >Wyloguj się</a></li>
 	</ul>
 	

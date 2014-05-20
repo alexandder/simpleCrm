@@ -10,10 +10,11 @@
 				@contactForm("name").valueOr("Nowy ")	
 				@contactForm("lastName").valueOr("kontakt:")
 			</legend>
+			<input type="hidden" name="id" value="@contactForm("id").value">
 			@helper.inputText(contactForm("name"), '_label -> "imię")
 			@helper.inputText(contactForm("lastName"), '_label -> "nazwisko")
 			@helper.inputText(contactForm("company"), '_label -> "firma")
-			@helper.inputText(contactForm("email"), '_label -> "email")
+			@helper.inputText(contactForm("email"), '_label -> "email", 'type -> "email")
 			@helper.inputText(contactForm("phoneNumber"), '_label -> "telefon")
 		
 		</fieldset>

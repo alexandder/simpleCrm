@@ -13,6 +13,7 @@ public class Secured extends Security.Authenticator {
 	
 	@Override
 	public Result onUnauthorized(Context ctx) {
+		play.mvc.Controller.flash("message", "Dostęp zabroniony. Proszę się zalogować.");
 		return redirect(routes.Application.login());
 	}
 	

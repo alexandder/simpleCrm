@@ -2,10 +2,12 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.UniqueConstraint;
 
 import play.data.validation.Constraints.Email;
 import play.data.validation.Constraints;
@@ -20,6 +22,7 @@ public class User extends Model{
 	
 	@Email
 	@Constraints.Required
+	@Column(unique=true)
 	public String email;
 	
 	@Constraints.Required

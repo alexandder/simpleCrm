@@ -9,7 +9,6 @@ import play.*;
 import play.data.Form;
 import play.mvc.*;
 import views.html.*;
-import views.html.contacts.details;
 
 public class Application extends Controller {
 
@@ -42,6 +41,11 @@ public class Application extends Controller {
     		flash("error", "Proszę podać hasło.");
     		return badRequest(register.render(form(LoginData.class)));
     	}
+    	if (User.findByEmail(email) != null) {
+    		flash("error", "Użytkownik o podanym emailu już istnieje. Proszę podać inny email");
+    		return badRequest(register.render(form(LoginData.class)));
+    	}
+    	
     	User newUser = new User(email, password);
     	Ebean.save(newUser);
     	flash("success", "Rejestracja powiodła się. Można się zalogować.");
@@ -54,7 +58,8 @@ public class Application extends Controller {
     	String password = loginForm.get().password;
     	User user = User.authenticate(email, password);
     	if (user == null) {
-    		return forbidden("Niepoprawne dane");
+    		flash("error", "Niepoprawne dane. Spróbuj ponownie.");
+        	return redirect(routes.Application.login());
     	}
     	session().clear();
     	session("email", email);

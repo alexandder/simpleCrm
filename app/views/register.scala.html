@@ -5,22 +5,31 @@
 
 @main("Zarejestruj się") {
 		@helper.form(helper.CSRF(routes.Application.addUser())) {
+			
 			<h2>Podaj email i hasło</h2>
-			<table>
-				<tr>
-					<td><span>Email:</span></td>
-					<td><input type="email" name="email" value="@registerForm("email").value"></td>
-				</tr>
-				<tr>
-					<td><span>Hasło:</span></td>
-					<td><input type="password" name="password" value="@registerForm("password").value"></td>
-				</tr>
-				<tr>
-					<td><span>Hasło ponownie:</span></td>
-					<td><input type="password" name="password2" value="@registerForm("password2").value"></td>
-				</tr>
-			</table>
+			<div class="control-group">
+			<label class="control-label" for="inputEmail">Email</label>
+				<div class="controls">
+					<input type="email" id="inputEmail" name="email" value="@registerForm("email").value" placeholder="email">
+				</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputPassword">Hasło</label>
+			<div class="controls">
+				<input type="password" id="inputPassword" name="password" value="@registerForm("password").value" placeholder="hasło">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputPassword">Hasło ponownie</label>
+			<div class="controls">
+				<input type="password" id="inputPassword" name="password2" value="@registerForm("password2").value" placeholder="hasło">
+			</div>
+		</div>
+		<br>
+		<div class="control-group">
 			<button type="submit" class="btn btn-primary">Zarejestruj się</button>
 			<a href="@routes.Application.login()" class="btn btn-primary">Powrót do logowania</a>
-		}
+		</div>
+			
 	}
+}

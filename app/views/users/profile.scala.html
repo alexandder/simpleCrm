@@ -1,0 +1,9 @@
+@* profile Template File *@
+@(user: User)
+
+	<h2>Twoje dane</h2>
+		@if(user.image != null) {
+			<img src="@routes.Assets.at(user.image)" class="img-polaroid">
+		}
+		<br>
+		<h3>@user.email</h3>
